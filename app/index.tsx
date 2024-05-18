@@ -1,4 +1,4 @@
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 import { styles } from "./index.styles";
 import Slider from "@react-native-community/slider";
 
@@ -17,11 +17,15 @@ export default function App() {
           style={styles.slider}
           minimumValue={6}
           maximumValue={20}
-          maximumTrackTintColor="green"
+          maximumTrackTintColor="#9BC568"
           minimumTrackTintColor="#414C98"
           thumbTintColor="#392de9"
         />
       </View>
+
+      <TouchableOpacity>
+        <Text>Gerar senha</Text>
+      </TouchableOpacity>
     </View>
   );
 }
