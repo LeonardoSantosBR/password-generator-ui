@@ -24,7 +24,7 @@ export default function App() {
           minimumTrackTintColor="#414C98"
           thumbTintColor="#392de9"
           value={caracterSize}
-          onValueChange={(value) => setCaracterSize(Math.round(value))}
+          onValueChange={(value) => setCaracterSize(Number(value.toFixed(0)))}
         />
       </View>
 
