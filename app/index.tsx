@@ -1,6 +1,6 @@
-import { View, Image, Text } from "react-native";
-import { styles } from "./index.styles";
 import Slider from "@react-native-community/slider";
+import { styles } from "./index.styles";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 
 export default function App() {
   return (
@@ -10,18 +10,22 @@ export default function App() {
         style={styles.logo}
       />
 
-      <Text>20 caracteres</Text>
+      <Text style={styles.title}>20 caracteres</Text>
 
       <View style={styles.area}>
         <Slider
           style={styles.slider}
           minimumValue={6}
           maximumValue={20}
-          maximumTrackTintColor="green"
+          maximumTrackTintColor="#9BC568"
           minimumTrackTintColor="#414C98"
           thumbTintColor="#392de9"
         />
       </View>
+
+      <TouchableOpacity style={styles.buttonGeneratePassword}>
+        <Text style={styles.buttonText}>Gerar senha</Text>
+      </TouchableOpacity>
     </View>
   );
 }
