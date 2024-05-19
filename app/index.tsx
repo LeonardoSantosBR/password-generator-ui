@@ -1,6 +1,6 @@
-import { View, Image, Text, TouchableOpacity } from "react-native";
-import { styles } from "./index.styles";
 import Slider from "@react-native-community/slider";
+import { styles } from "./index.styles";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 
 export default function App() {
   return (
@@ -10,7 +10,7 @@ export default function App() {
         style={styles.logo}
       />
 
-      <Text>20 caracteres</Text>
+      <Text style={styles.title}>20 caracteres</Text>
 
       <View style={styles.area}>
         <Slider
@@ -23,8 +23,8 @@ export default function App() {
         />
       </View>
 
-      <TouchableOpacity>
-        <Text>Gerar senha</Text>
+      <TouchableOpacity style={styles.buttonGeneratePassword}>
+        <Text style={styles.buttonText}>Gerar senha</Text>
       </TouchableOpacity>
     </View>
   );

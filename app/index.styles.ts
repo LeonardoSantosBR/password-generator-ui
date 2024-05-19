@@ -10,6 +10,10 @@ export const styles = StyleSheet.create({
   logo: {
     marginBottom: 60,
   },
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+  },
   area: {
     marginTop: 14,
     marginBottom: 14,
@@ -20,5 +24,20 @@ export const styles = StyleSheet.create({
   },
   slider: {
     height: 50,
+  },
+  buttonGeneratePassword: {
+    width: "80%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 6,
+    padding: 8,
+    backgroundColor: "#392de9",
+    marginBottom: 18,
+  },
+  buttonText: {
+    color: "#FFF",
+    fontSize: 15,
+    fontWeight: "bold",
   },
 });
