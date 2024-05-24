@@ -15,7 +15,7 @@ export default function App() {
       newPassword += charset.charAt(Math.floor(Math.random() * n));
     }
 
-    setPassword(password);
+    setPassword(newPassword);
   };
 
   return (
