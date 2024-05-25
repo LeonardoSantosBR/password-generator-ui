@@ -1,11 +1,13 @@
 import Slider from "@react-native-community/slider";
 import { useState } from "react";
 import { styles } from "./index.styles";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity, Modal } from "react-native";
+import { ModalPassword } from "@/src/components/modals/password/password";
 
 export default function App() {
   const [caracterSize, setCaracterSize] = useState(10);
   const [password, setPassword] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
 
   const generatePassword = () => {
     let newPassword = "";
@@ -16,6 +18,7 @@ export default function App() {
     }
 
     setPassword(newPassword);
+    setModalVisible(true);
   };
 
   return (
@@ -46,6 +49,10 @@ export default function App() {
       >
         <Text style={styles.buttonText}>Gerar senha</Text>
       </TouchableOpacity>
+
+      <Modal visible={modalVisible} animationType="fade" transparent={true}>
+        <ModalPassword />
+      </Modal>
     </View>
   );
 }
