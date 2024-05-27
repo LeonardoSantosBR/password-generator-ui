@@ -32,4 +32,28 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     textAlign: "center",
   },
+  buttonArea: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "80%",
+    marginTop: 12,
+  },
+  button: {
+    marginTop: 12,
+    marginBottom: 12,
+    padding: 8,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  buttonSave: {
+    backgroundColor: "#392DE9",
+    padding: 8,
+    borderRadius: 6,
+  },
+  buttonTextSave: {
+    color: "#FFF",
+    fontWeight: "bold",
+  },
 });
