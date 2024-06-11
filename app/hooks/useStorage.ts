@@ -3,8 +3,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export default function useStorage() {
   const getItem = async (key: string) => {
     try {
-      const passwords = await AsyncStorage.getItem(key);
-      return passwords;
+      const passwords: any = await AsyncStorage.getItem(key);
+      return JSON.parse(passwords) || [];
     } catch (error) {
       console.log("erro ao buscar", error);
       return [];
@@ -13,7 +13,7 @@ export default function useStorage() {
 
   const saveItem = async (key: string, value: string) => {
     try {
-      const passwords: any = await getItem(key);
+      const passwords = await getItem(key);
       passwords.push(value);
       await AsyncStorage.setItem(key, JSON.stringify(passwords));
     } catch (error) {

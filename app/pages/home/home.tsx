@@ -2,7 +2,7 @@ import Slider from "@react-native-community/slider";
 import { useState } from "react";
 import { styles } from "./home.styles";
 import { View, Image, Text, TouchableOpacity, Modal } from "react-native";
-import { ModalPassword } from "@/app/components/modals/password/password";
+import { ModalPassword } from "@/app/components/modals/password/modal-password";
 
 export function Home() {
   const [caracterSize, setCaracterSize] = useState(10);
