@@ -22,7 +22,7 @@ export default function useStorage() {
     }
   };
 
-  const removeItem = async (key: string, value: string) => {
+  const removeItem = async (key: string, value: String) => {
     try {
       let passwords: any = await getItem(key);
       passwords = passwords.filter((password: any) => password !== value);

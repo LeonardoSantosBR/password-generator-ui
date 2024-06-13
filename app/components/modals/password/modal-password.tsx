@@ -1,6 +1,6 @@
 import * as clipboard from "expo-clipboard";
 import useStorage from "@/app/hooks/useStorage";
-import { styles } from "./style";
+import { styles } from "./modal-password.style";
 import { View, Text, TouchableOpacity, Pressable } from "react-native";
 
 export function ModalPassword({

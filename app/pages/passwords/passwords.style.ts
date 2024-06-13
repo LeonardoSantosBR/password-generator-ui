@@ -17,6 +17,12 @@ export const styles = StyleSheet.create({
     color: "#FFF",
   },
   container: {
-    
-  }
+    flex: 1,
+    paddingLeft: 14,
+    paddingRight: 14,
+  },
+  flatList: {
+    flex: 1,
+    paddingTop: 14,
+  },
 });

@@ -12,6 +12,7 @@ export function Routes() {
         name="Gerar senha"
         component={Home}
         options={{
+          tabBarShowLabel: false,
           headerShown: false,
           tabBarIcon: ({ focused, size, color }) => {
             if (focused) {
@@ -26,6 +27,7 @@ export function Routes() {
         name="Senhas geradas"
         component={Passwords}
         options={{
+          tabBarShowLabel: false,
           headerShown: false,
           tabBarIcon: ({ focused, size, color }) => {
             if (focused) {
