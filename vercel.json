@@ -1,4 +1,0 @@
-{
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }],
-  "builds": [{ "src": "app/index.tsx", "use": "@vercel/node" }]
-}
