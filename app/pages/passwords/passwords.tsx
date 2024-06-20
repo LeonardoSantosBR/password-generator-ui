@@ -30,6 +30,7 @@ export function Passwords() {
       <View style={styles.header}>
         <Text style={styles.title}>Minhas Senhas</Text>
       </View>
+      
       <View style={styles.container}>
         <FlatList
           style={styles.flatList}
