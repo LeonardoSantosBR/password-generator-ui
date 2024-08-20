@@ -17,7 +17,7 @@ export default function Signin() {
 
       <View style={styles.formArea}>
         <TextInput placeholder="Email" style={styles.input} />
-        <TextInput placeholder="Senha" style={styles.input} />
+        <TextInput placeholder="Senha" style={styles.input} secureTextEntry={true}/>
       </View>
 
       <Text onPress={() => dispatch(setSign())} style={styles.newCount}>

@@ -12,8 +12,16 @@ export default function SignUp() {
 
       <View style={styles.formArea}>
         <TextInput placeholder="Email" style={styles.input} />
-        <TextInput placeholder="Senha" style={styles.input} />
-        <TextInput placeholder="Confirmar senha" style={styles.input} />
+        <TextInput
+          placeholder="Senha"
+          style={styles.input}
+          secureTextEntry={true}
+        />
+        <TextInput
+          placeholder="Confirmar senha"
+          style={styles.input}
+          secureTextEntry={true}
+        />
       </View>
 
       <Text onPress={() => dispatch(setSign())} style={styles.newCount}>
