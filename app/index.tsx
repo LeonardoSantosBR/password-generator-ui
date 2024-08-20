@@ -1,16 +1,24 @@
-import { useAtom } from "jotai";
+import Signin from "./pages/auth/signin/signin";
+import store from "./redux/store";
+import { useSelector } from "react-redux";
+import { Provider } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { Routes } from "@/app/routes";
-import { isAuth } from "./state/atoms";
 
-import Signin from "./pages/auth/signin/signin";
-
-export default function App() {
-  const [isAuthenticated] = useAtom(isAuth);
+function AppContent() {
+  const auth = useSelector((state: any) => state.auth.value);
 
   return (
     <NavigationContainer independent={true}>
-      {isAuthenticated ? <Routes /> : <Signin />}
+      {auth ? <Routes /> : <Signin />}
     </NavigationContainer>
+  );
+}
+
+export default function App() {
+  return (
+    <Provider store={store}>
+      <AppContent />
+    </Provider>
   );
 }
