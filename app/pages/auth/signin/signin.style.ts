@@ -13,12 +13,12 @@ export const styles = StyleSheet.create({
     color: "#392de9",
     marginBottom: 45,
   },
-  textForgot: {
+  newCount: {
     fontSize: 14,
     fontWeight: "bold",
     color: "#392de9",
     textDecorationLine: "underline",
-    marginBottom: 40,
+    marginBottom: 29,
   },
   formArea: {
     width: "100%",
