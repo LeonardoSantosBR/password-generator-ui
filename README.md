@@ -16,7 +16,18 @@ o nome da variavel se chama caracterSize, e sua função que é chamada para atu
 eu utilizei o async storage do react-native, para guardar as senhas geradas no armazenamento, também as funções de get, e remover senha na tela de senhas geradas. 
 ![code](https://github.com/LeonardoSantosBR/password-generator-ui/assets/93662977/9c081a6a-64f6-4cfb-b879-e76fab6abc2c)
 
-
+### Criando sistema de criação de usuário e login:
+Essa etapa do projeto eu quis criar para meu aprendizado com estados globais da aplicação e integração com o front-end, criado em branch apartada pois ainda está em desenvolvimento.
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/01adae22-eca5-42eb-95d1-f739623aae9a" alt="image1" width="500"/>
+    </td>
+    <td>
+      <img src="https://github.com/user-attachments/assets/b96d917c-c742-4bec-9ee4-df17d954b4a1" alt="image2" width="500"/>
+    </td>
+  </tr>
+</table>
 
 
 
