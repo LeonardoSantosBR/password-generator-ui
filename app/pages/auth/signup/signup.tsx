@@ -7,18 +7,13 @@ import { createUser } from "@/app/services/users";
 import { useState } from "react";
 
 export default function SignUp() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const dispatch = useDispatch();
   const { mutateAsync: createUserFn } = useMutation({
     mutationFn: createUser,
   });
-
-  const data = {
-    email: email,
-    password: password,
-  };
 
   async function handleSignUpUser(data: { email: string; password: string }) {
     try {
@@ -30,6 +25,11 @@ export default function SignUp() {
       alert("Erro ao criar conta" + error);
     }
   }
+
+  const data = {
+    email: email,
+    password: password,
+  };
 
   return (
     <View style={styles.container}>
