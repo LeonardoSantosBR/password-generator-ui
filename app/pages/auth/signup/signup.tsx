@@ -40,7 +40,7 @@ export default function SignUp() {
         rules={{ required: "Email obrigatório." }}
         render={({ field: { value, onChange } }) => {
           return (
-            <>
+            <View style={styles.inputContainer}>
               <TextInput
                 value={value}
                 placeholder="Email"
@@ -48,7 +48,10 @@ export default function SignUp() {
                 onChangeText={onChange}
                 autoCapitalize="none"
               />
-            </>
+              {errors.email ? (
+                <Text style={styles.error}>{errors.email?.message}</Text>
+              ) : null}
+            </View>
           );
         }}
       />
@@ -59,7 +62,7 @@ export default function SignUp() {
         rules={{ required: "Senha obrigatória." }}
         render={({ field: { value, onChange } }) => {
           return (
-            <>
+            <View style={styles.inputContainer}>
               <TextInput
                 value={value}
                 placeholder="Senha"
@@ -68,7 +71,10 @@ export default function SignUp() {
                 onChangeText={onChange}
                 autoCapitalize="none"
               />
-            </>
+              {errors.password ? (
+                <Text style={styles.error}>{errors.password?.message}</Text>
+              ) : null}
+            </View>
           );
         }}
       />
@@ -79,7 +85,7 @@ export default function SignUp() {
         rules={{ required: "Necessário confirmar a senha." }}
         render={({ field: { value, onChange } }) => {
           return (
-            <>
+            <View style={styles.inputContainer}>
               <TextInput
                 value={value}
                 placeholder="Confirmar senha"
@@ -88,7 +94,10 @@ export default function SignUp() {
                 onChangeText={onChange}
                 autoCapitalize="none"
               />
-            </>
+              {errors.confirmPassword ? (
+                <Text style={styles.error}>{errors.confirmPassword?.message}</Text>
+              ) : null}
+            </View>
           );
         }}
       />

@@ -22,9 +22,15 @@ export const styles = StyleSheet.create({
   },
   formArea: {
     width: "100%",
-    marginBottom: 20,
+    marginBottom: 23,
     alignItems: "center",
     justifyContent: "center",
+  },
+  inputContainer: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 23,
   },
   input: {
     width: "75%",
@@ -32,7 +38,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderColor: "#ccc",
     borderWidth: 1,
-    marginBottom: 17,
     paddingHorizontal: 10,
     borderRadius: 5,
     padding: 20,
@@ -48,5 +53,10 @@ export const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
+  },
+  error: {
+    width: "75%",
+    color: "red",
+    height: 15,
   },
 });
