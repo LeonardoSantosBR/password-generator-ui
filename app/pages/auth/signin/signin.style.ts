@@ -20,9 +20,9 @@ export const styles = StyleSheet.create({
     textDecorationLine: "underline",
     marginBottom: 29,
   },
-  formArea: {
+  inputContainer: {
     width: "100%",
-    marginBottom: 20,
+    marginBottom: 23,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -32,21 +32,25 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderColor: "#ccc",
     borderWidth: 1,
-    marginBottom: 17,
     paddingHorizontal: 10,
     borderRadius: 5,
-    padding: 20
+    padding: 20,
   },
   button: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: "#4CAF50",
     paddingVertical: 10,
     paddingHorizontal: 25,
     borderRadius: 5,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontWeight: "bold",
     fontSize: 16,
+  },
+  error: {
+    width: "75%",
+    color: "red",
+    height: 15,
   },
 });
