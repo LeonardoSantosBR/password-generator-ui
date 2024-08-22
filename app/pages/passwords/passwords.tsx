@@ -1,4 +1,4 @@
-import useStorage from "@/app/hooks/useStorage";
+import useStorage from "@/app/storage/useStorage";
 import { useState, useEffect } from "react";
 import { useIsFocused } from "@react-navigation/native";
 import { View, Text, FlatList } from "react-native";

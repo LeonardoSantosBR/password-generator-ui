@@ -4,7 +4,7 @@ import { styles } from "./signup.style";
 import { useDispatch } from "react-redux";
 import { setSign } from "../../../redux/signSlice.ts/signSlice";
 import { UsersFormData } from "@/app/types/users/users";
-import { useUsersMutation } from "@/app/hooks/useUsersMutation";
+import { useUsersMutation } from "@/app/hooks/users/useUsersMutation";
 
 export default function SignUp() {
   const createUserFn = useUsersMutation();

@@ -6,10 +6,10 @@ import { useDispatch } from "react-redux";
 import { setSign } from "../../../redux/signSlice.ts/signSlice";
 import { useForm, Controller } from "react-hook-form";
 import { UsersFormData } from "@/app/types/users/users";
-import { useMutation } from "@tanstack/react-query";
-import { login } from "@/app/services/users";
+import { useLoginMutation } from "@/app/hooks/users/useLoginMutation";
 
 export default function Signin() {
+  const login = useLoginMutation();
   const dispatch = useDispatch();
   const sign = useSelector((state: any) => state.sign.value);
 
@@ -17,22 +17,26 @@ export default function Signin() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<UsersFormData>();
-
-  const { mutateAsync: loginFn } = useMutation({
-    mutationFn: login,
+  } = useForm<UsersFormData>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
 
   if (sign) return <SignUp />;
 
-  async function onSubmit(data: UsersFormData) {
+  async function onSubmit({
+    email,
+    password,
+  }: {
+    email: string;
+    password: string;
+  }) {
     try {
-      await loginFn({
-        email: data.email,
-        password: data.password,
-      });
-    } catch (error) {
-      alert("Erro ao criar conta" + error);
+      await login({ email, password });
+    } catch (error: any) {
+      alert("Erro ao entrar" + error);
     }
   }
 
