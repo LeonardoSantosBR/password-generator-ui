@@ -5,9 +5,10 @@ import { useDispatch } from "react-redux";
 import { setSign } from "../../../redux/signSlice.ts/signSlice";
 import { UsersFormData } from "@/app/types/users/users";
 import { useUsersMutation } from "@/app/hooks/users/useUsersMutation";
+import { ModalSpinner } from "@/app/components/modals/spinner/modal-spinner";
 
 export default function SignUp() {
-  const createUserFn = useUsersMutation();
+  const { createUserFn, isPending, isError } = useUsersMutation();
   const dispatch = useDispatch();
   const {
     control,
@@ -141,6 +142,8 @@ export default function SignUp() {
       <TouchableOpacity onPress={handleSubmit(onSubmit)} style={styles.button}>
         <Text style={styles.buttonText}>Criar</Text>
       </TouchableOpacity>
+
+      {isPending && <ModalSpinner />}
     </View>
   );
 }
