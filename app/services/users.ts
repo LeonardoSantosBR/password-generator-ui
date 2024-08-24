@@ -13,7 +13,11 @@ export async function login(data: { email: string; password: string }) {
   }
 }
 
-export async function createUser(data: { email: string; password: string }) {
+export async function createUser(data: {
+  name: string;
+  email: string;
+  password: string;
+}) {
   try {
     const res = await axios.post(`${API_HOST}` + `users`, data);
     return res;

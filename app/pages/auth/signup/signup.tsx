@@ -15,6 +15,7 @@ export default function SignUp() {
     formState: { errors },
   } = useForm<UsersFormData>({
     defaultValues: {
+      name: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -22,14 +23,16 @@ export default function SignUp() {
   });
 
   const onSubmit = async ({
+    name,
     email,
     password,
   }: {
+    name: string;
     email: string;
     password: string;
   }) => {
     try {
-      await createUserFn({ email, password });
+      await createUserFn({ name, email, password });
     } catch (error: any) {
       alert("Erro ao criar conta: " + error.message);
     }
@@ -38,6 +41,28 @@ export default function SignUp() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>👋 Crie sua conta</Text>
+
+      <Controller
+        control={control}
+        name="name"
+        rules={{ required: "Nome obrigatório." }}
+        render={({ field: { value, onChange } }) => {
+          return (
+            <View style={styles.inputContainer}>
+              <TextInput
+                value={value}
+                placeholder="Nome"
+                style={styles.input}
+                onChangeText={onChange}
+                autoCapitalize="none"
+              />
+              {errors.name ? (
+                <Text style={styles.error}>{errors.name?.message}</Text>
+              ) : null}
+            </View>
+          );
+        }}
+      />
 
       <Controller
         control={control}
