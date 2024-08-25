@@ -7,23 +7,8 @@ import { styles } from "./passwords.style";
 import { PasswordItem } from "./components/passwordItem";
 
 export function Passwords() {
-  const { getItem, removeItem } = useStorage();
   const [passwordList, SetPasswordList] = useState<String[]>([]);
   const isFocused = useIsFocused();
-
-  async function handleRemoveItem(item: String) {
-    const passwords = await removeItem("@pass", item);
-    SetPasswordList(passwords);
-  }
-
-  useEffect(() => {
-    async function loadPasswordList() {
-      const passwordStorage: any = await getItem("@pass");
-      SetPasswordList(passwordStorage);
-    }
-
-    loadPasswordList();
-  }, [isFocused]);
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -31,7 +16,7 @@ export function Passwords() {
         <Text style={styles.title}>Minhas Senhas</Text>
       </View>
       
-      <View style={styles.container}>
+      {/* <View style={styles.container}>
         <FlatList
           style={styles.flatList}
           data={passwordList}
@@ -43,7 +28,7 @@ export function Passwords() {
             />
           )}
         />
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 }

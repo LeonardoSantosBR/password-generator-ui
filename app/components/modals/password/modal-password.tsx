@@ -10,11 +10,9 @@ export function ModalPassword({
   password: string;
   handleClose: any;
 }) {
-  const { saveItem } = useStorage();
 
   async function handleCopyPassword() {
     await clipboard.setStringAsync(password);
-    await saveItem("@pass", password);
     handleClose();
   }
 

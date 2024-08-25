@@ -1,42 +1,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function useStorage() {
-  const getItem = async (key: string) => {
+  const setToken = async (accessToken: string) => {
     try {
-      const passwords: any = await AsyncStorage.getItem(key);
-      return JSON.parse(passwords) || [];
+      await AsyncStorage.setItem("@token", accessToken);
     } catch (error) {
-      console.log("erro ao buscar", error);
-      return [];
-    }
-  };
-
-  const saveItem = async (key: string, value: string) => {
-    try {
-      const passwords = await getItem(key);
-      passwords.push(value);
-      await AsyncStorage.setItem(key, JSON.stringify(passwords));
-    } catch (error) {
-      console.log("erro ao salvar", error);
-      return [];
-    }
-  };
-
-  const removeItem = async (key: string, value: String) => {
-    try {
-      let passwords: any = await getItem(key);
-      passwords = passwords.filter((password: any) => password !== value);
-      await AsyncStorage.setItem(key, JSON.stringify(passwords));
-      return passwords;
-    } catch (error) {
-      console.log("erro ao remover.", error);
-      return [];
+      return error;
     }
   };
 
   return {
-    getItem,
-    saveItem,
-    removeItem,
+    setToken,
   };
 }

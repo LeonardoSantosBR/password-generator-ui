@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { User } from "./pages/user/user";
 import { Home } from "./pages/home/home";
 import { Passwords } from "./pages/passwords/passwords";
 import { Ionicons } from "@expo/vector-icons";
@@ -26,6 +27,23 @@ export function Routes() {
       <Tab.Screen
         name="Senhas geradas"
         component={Passwords}
+        options={{
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarIcon: ({ focused, size, color }) => {
+            if (focused) {
+              return <Ionicons size={size} name="lock-closed" color={color} />;
+            }
+
+            return (
+              <Ionicons size={size} name="lock-closed-outline" color={color} />
+            );
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={User}
         options={{
           tabBarShowLabel: false,
           headerShown: false,

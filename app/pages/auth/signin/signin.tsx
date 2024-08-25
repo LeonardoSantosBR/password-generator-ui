@@ -1,19 +1,25 @@
 import SignUp from "../signup/signup";
 import Toast from "react-native-toast-message";
+import useStorage from "@/app/storage/useStorage";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { styles } from "./signin.style";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setSign } from "../../../redux/signSlice.ts/signSlice";
+import { setAuth } from "@/app/redux/authSlice/authSlice";
 import { useForm, Controller } from "react-hook-form";
 import { UsersFormData } from "@/app/types/users/users";
 import { useLoginMutation } from "@/app/hooks/users/useLoginMutation";
 import { ModalSpinner } from "@/app/components/modals/spinner/modal-spinner";
 
 export default function Signin() {
+  const { setToken } = useStorage();
   const { loginFn, isPending } = useLoginMutation();
 
+  //redux
   const sign = useSelector((state: any) => state.sign.value);
+
+  //change global state
   const dispatch = useDispatch();
 
   const {
@@ -37,7 +43,11 @@ export default function Signin() {
     password: string;
   }) {
     try {
-      await loginFn({ email, password });
+      const res = await loginFn({ email, password });
+      const token = res.data.accessToken
+      await setToken(token);
+      dispatch(setAuth(token));
+
       Toast.show({
         type: "success",
         text1: "Login efetuado com sucesso.",
