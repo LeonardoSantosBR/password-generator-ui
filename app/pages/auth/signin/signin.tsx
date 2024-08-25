@@ -1,5 +1,6 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import SignUp from "../signup/signup";
+import Toast from "react-native-toast-message";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { styles } from "./signin.style";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -7,11 +8,13 @@ import { setSign } from "../../../redux/signSlice.ts/signSlice";
 import { useForm, Controller } from "react-hook-form";
 import { UsersFormData } from "@/app/types/users/users";
 import { useLoginMutation } from "@/app/hooks/users/useLoginMutation";
+import { ModalSpinner } from "@/app/components/modals/spinner/modal-spinner";
 
 export default function Signin() {
-  const login = useLoginMutation();
-  const dispatch = useDispatch();
+  const { loginFn, isPending } = useLoginMutation();
+
   const sign = useSelector((state: any) => state.sign.value);
+  const dispatch = useDispatch();
 
   const {
     control,
@@ -34,9 +37,17 @@ export default function Signin() {
     password: string;
   }) {
     try {
-      await login({ email, password });
+      await loginFn({ email, password });
+      Toast.show({
+        type: "success",
+        text1: "Login efetuado com sucesso.",
+      });
     } catch (error: any) {
-      alert("Erro ao entrar" + error);
+      Toast.show({
+        type: "error",
+        text1: "Erro ao entrar",
+        text2: error.message,
+      });
     }
   }
 
@@ -97,6 +108,9 @@ export default function Signin() {
           Entrar
         </Text>
       </TouchableOpacity>
+
+      {isPending && <ModalSpinner />}
+      <Toast />
     </View>
   );
 }

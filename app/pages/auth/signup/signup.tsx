@@ -1,5 +1,6 @@
-import { useForm, Controller } from "react-hook-form";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import Toast from "react-native-toast-message";
+import { useForm, Controller } from "react-hook-form";
 import { styles } from "./signup.style";
 import { useDispatch } from "react-redux";
 import { setSign } from "../../../redux/signSlice.ts/signSlice";
@@ -8,7 +9,7 @@ import { useUsersMutation } from "@/app/hooks/users/useUsersMutation";
 import { ModalSpinner } from "@/app/components/modals/spinner/modal-spinner";
 
 export default function SignUp() {
-  const { createUserFn, isPending, isError } = useUsersMutation();
+  const { createUserFn, isPending } = useUsersMutation();
   const dispatch = useDispatch();
   const {
     control,
@@ -34,8 +35,16 @@ export default function SignUp() {
   }) => {
     try {
       await createUserFn({ name, email, password });
+      Toast.show({
+        type: "success",
+        text1: "Conta criada com sucesso.",
+      });
     } catch (error: any) {
-      alert("Erro ao criar conta: " + error.message);
+      Toast.show({
+        type: "error",
+        text1: "Erro ao entrar",
+        text2: error.message,
+      });
     }
   };
 
@@ -144,6 +153,7 @@ export default function SignUp() {
       </TouchableOpacity>
 
       {isPending && <ModalSpinner />}
+      <Toast />
     </View>
   );
 }
